@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "name": "Brown Brim",
+    "imageUrl": "https://images.unsplash.com/photo-1499111544217-9590382658d3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=688&q=80",
+    "price": 25
+  },
+  {
+    "id": 2,
+    "name": "Blue Beanie",
+    "imageUrl": "https://images.unsplash.com/photo-1519663412347-41822a105815?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8Qmx1ZSUyMEJlYW5pZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=688&q=80",
+    "price": 18
+  },
+  {
+    "id": 3,
+    "name": "Blown Cowboy",
+    "imageUrl": "https://images.unsplash.com/photo-1613069704252-b83699a549b4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTZ8fGNvd2JveSUyMGhhdHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=688&q=80",
+    "price": 35
+  },
+  {
+    "id": 4,
+    "name": "Grey Brim",
+    "imageUrl": "https://images.unsplash.com/photo-1494652588305-d663c5a1eb31?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=688&q=80",
+    "price": 25
+  },
+  {
+    "id": 5,
+    "name": "Green Beanie",
+    "imageUrl": "https://images.unsplash.com/photo-1510598969022-c4c6c5d05769?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
+    "price": 18
+  }
+]
