@@ -27,7 +27,7 @@ const Signin = () => {
   const handleGoogleSignin = async (e) => {
     e.preventDefault();
     await signinWithGooglePopup();
-    location.assign('http://localhost:5174/');
+    // location.assign('http://localhost:5173/');
   };
   const handleEmailandPasswordSignin = async () => {
     if (!email || !password) {
