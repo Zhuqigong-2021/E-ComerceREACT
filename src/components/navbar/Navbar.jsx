@@ -1,19 +1,23 @@
-import React, { useState, useContext } from 'react';
-import { UserContext } from '../../context/UserContext';
-import { CartContext } from '../../context/CartContext';
+import React, { useState, useContext, useEffect } from 'react';
+// import { UserContext } from '../../context/UserContext';
+// import { CartContext } from '../../context/CartContext';
 import { Link, useNavigate } from 'react-router-dom';
 import Button from '../button/Button';
 import { signoutUser } from '../../utils/firebase';
 import CartIcon from '../cart-icon/CartIcon';
 import CartDropdown from '../cart-dropdown/CartDropdown';
 import { NavbarContainer } from './Navbar.style.jsx';
+import { useSelector, useDispatch } from 'react-redux';
 
+import { setCurrentUser } from '../../redux/reducer/UserSlice';
+import { selectIsCartOpen } from '../../redux/reducer/CartSlice';
 const Navbar = () => {
-  const { currentUser } = useContext(UserContext);
-  const { isCartOpen, setIsCartOpen } = useContext(CartContext);
+  // const { currentUser } = useContext(UserContext);
 
+  const { currentUser } = useSelector((state) => state.user);
+  // const { isCartOpen } = useContext(CartContext);
+  const isCartOpen = useSelector((state) => selectIsCartOpen(state));
   const navigate = useNavigate();
-  // const toggleCart = () => setIsCartOpen(!IsCartOpen);
 
   return (
     <>

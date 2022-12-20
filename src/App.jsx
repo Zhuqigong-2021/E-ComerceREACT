@@ -1,6 +1,9 @@
-import { useState } from 'react';
-import Navbar from './components/navbar/Navbar';
+import { useState, useEffect } from 'react';
 
+import {
+  onAuthStateChangedListener,
+  createUserDocFromAuth,
+} from '../src/utils/firebase';
 import {
   Home,
   Layout,
@@ -12,12 +15,26 @@ import {
   Checkout,
 } from './components/';
 import { Routes, Route } from 'react-router-dom';
-import GlobalStyle from './index.style';
+// import GlobalStyle from './index.style';
+import { useDispatch } from 'react-redux';
+
+import { setCurrentUser } from '../src/redux/reducer/UserSlice';
 
 function App() {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    const unsubscribe = onAuthStateChangedListener((user) => {
+      if (user) {
+        createUserDocFromAuth(user);
+      }
+      dispatch(setCurrentUser(user));
+    });
+    return unsubscribe;
+  }, [dispatch]);
+
   return (
     <div className="App">
-      <GlobalStyle />
+      {/* <GlobalStyle /> */}
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />

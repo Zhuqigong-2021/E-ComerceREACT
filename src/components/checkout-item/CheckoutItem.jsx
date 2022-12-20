@@ -2,18 +2,41 @@ import React, { useContext } from 'react';
 import {
   CartItemImageContainer,
   CheckoutItemstyle,
-  DescriptionContainer,
 } from '../checkout-item/CheckoutItem.style';
-import { CartContext } from '../../context/CartContext';
-const CheckoutItem = ({ cartItem }) => {
+// import { CartContext } from '../../context/CartContext';
+import {
+  addItemToCart,
+  removeItemToCart,
+  clearItemFromCart,
+  setCartItems,
+  selectCartItems,
+} from '../../redux/reducer/CartSlice';
+import { useDispatch } from 'react-redux';
+
+const CheckoutItem = ({ cartItems, cartItem }) => {
+  const dispatch = useDispatch();
   const { id, price, quantity, imageUrl, name } = cartItem;
-  const { addItemToCart, removeItemToCart, clearItemFromCart } =
-    useContext(CartContext);
+  // const { addItemToCart, removeItemToCart, clearItemFromCart } =
+  //   useContext(CartContext);
 
-  const addItemHandler = () => addItemToCart(cartItem);
-  const removeItemHandler = () => removeItemToCart(cartItem);
+  const addItemHandler = () => {
+    const updatevalue = addItemToCart(cartItems, cartItem);
+    dispatch(setCartItems(updatevalue));
+  };
+  const removeItemHandler = () => {
+    const updatevalue = removeItemToCart(cartItems, cartItem);
+    dispatch(setCartItems(updatevalue));
+  };
 
-  const clearItemHandler = () => clearItemFromCart(cartItem);
+  const clearItemHandler = () => {
+    const updatevalue = clearItemFromCart(cartItems, cartItem);
+    dispatch(setCartItems(updatevalue));
+  };
+
+  // const addItemHandler = () => addItemToCart(cartItems, cartItem);
+  // const removeItemHandler = () => removeItemToCart(cartItems, cartItem);
+
+  // const clearItemHandler = () => clearItemFromCart(cartItems, cartItem);
   return (
     <CheckoutItemstyle>
       <CartItemImageContainer>
