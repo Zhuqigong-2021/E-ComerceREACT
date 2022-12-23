@@ -4,23 +4,37 @@ import { CategoryContainer, CategoryTitle } from './Category.style';
 import { useParams } from 'react-router-dom';
 import ProductCard from '../product-card/ProductCard';
 import { useSelector } from 'react-redux';
-import { selectCategoriesMap } from '../../redux/reducer/CategorySlice';
+import {
+  selectCategoriesMap,
+  getCategoryStatus,
+  getCategoryError,
+} from '../../redux/reducer/CategorySlice';
 import { selectCartItems } from '../../redux/reducer/CartSlice';
+
 const Category = () => {
   const { category } = useParams();
   // const { categoriesMap } = useContext(CategoriesContext);
   // const { categoriesMap } = useSelector((state) => state.category);
   // console.log(categoriesMap);
-  const categoriesMap = useSelector((state) => selectCategoriesMap(state));
+  const categoriesMap = useSelector(selectCategoriesMap);
   const cartItems = useSelector((state) => selectCartItems(state));
 
   const [products, setProducts] = useState(categoriesMap[category]);
+
+  const status = useSelector(getCategoryStatus);
+  const error = useSelector(getCategoryError);
+  console.log(status);
+  console.log(categoriesMap);
+
   useEffect(() => {
     setProducts(categoriesMap[category]);
-  }, [category]);
-  return (
-    <Fragment>
-      <CategoryTitle className="title">{category.toUpperCase()}</CategoryTitle>
+  }, [category, categoriesMap]);
+
+  let content;
+  if (status === 'loading') {
+    content = <p>"Loading..."</p>;
+  } else if (status === 'succeeded') {
+    content = (
       <CategoryContainer>
         {products &&
           products.map((product) => (
@@ -31,6 +45,16 @@ const Category = () => {
             />
           ))}
       </CategoryContainer>
+    );
+  }
+  if (status === 'failed') {
+    content = <p> {error} </p>;
+  }
+
+  return (
+    <Fragment>
+      <CategoryTitle className="title">{category.toUpperCase()}</CategoryTitle>
+      {content}
     </Fragment>
   );
 };
