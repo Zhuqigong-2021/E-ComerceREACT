@@ -16,7 +16,7 @@ export const BackgroundImage = styled.div`
 
 export const Body = styled.div`
   height: 90px;
-  z-index: 100;
+
   padding: 0 25px;
   display: flex;
   flex-direction: column;

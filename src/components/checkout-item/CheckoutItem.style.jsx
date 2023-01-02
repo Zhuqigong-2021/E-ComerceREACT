@@ -1,13 +1,14 @@
 import styled from 'styled-components';
 export const CheckoutItemstyle = styled.div`
-  position: relative;
+  // position: relative;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   align-items: center;
   justify-items: center;
   height: 200px;
-
-  box-shadow: 0 0 3px darkgreen;
+  background-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
   margin-top: 1rem;
   margin-bottom: 1rem;
   .arrow {
@@ -18,10 +19,10 @@ export const CheckoutItemstyle = styled.div`
   }
 `;
 export const CartItemImageContainer = styled.div`
-  display: flex;
+  display: inline-block;
   border: 1px solid black;
   width: 100%;
-  height: 100%;
+  height: 200px;
   transform: scale(0.6);
 `;
 

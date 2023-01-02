@@ -7,6 +7,7 @@ import {
   selectCartItems,
   selectCartTotal,
 } from '../../redux/reducer/CartSlice';
+import PaymentForm from '../payment-form/PaymentForm';
 
 const Checkout = () => {
   // const { cartItems, cartTotal } = useContext(CartContext);
@@ -39,6 +40,7 @@ const Checkout = () => {
       <div className="total">
         <span>Total:$ {cartTotal}</span>
       </div>
+      <PaymentForm />
     </CheckoutStyle>
   );
 };

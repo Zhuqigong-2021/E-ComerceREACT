@@ -10,7 +10,8 @@ import { PersistGate } from 'redux-persist/integration/react';
 import { Provider } from 'react-redux';
 import { store, persistor } from './redux/store';
 import { fetchCategoriesAsync } from './redux/saga/categorySaga';
-
+import { Elements } from '@stripe/react-stripe-js';
+import { stripePromise } from '../src/utils/stripe/stripe.util';
 // import { fetchCategory } from './redux/reducer/CategorySlice';
 // store.dispatch(fetchCategory());
 // store.dispatch(fetchCategoriesAsync());
@@ -24,7 +25,10 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 
           {/* <CategoriesProvider> */}
           {/* <CartProvider> */}
-          <App />
+          <Elements stripe={stripePromise}>
+            <App />
+          </Elements>
+
           {/* </CartProvider> */}
           {/* </CategoriesProvider> */}
 
