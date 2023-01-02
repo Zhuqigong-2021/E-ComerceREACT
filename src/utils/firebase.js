@@ -71,7 +71,7 @@ export const getCategoriesAndDocuments = async () => {
   //   return acc;
   // }, {});
 
-  return categoryMap;
+  // return categoryMap;
 };
 // export const addProductDocFromAuth = async (userAuth) => {
 //   if (!userAuth) return;
@@ -98,7 +98,7 @@ export const getCategoriesAndDocuments = async () => {
 //   const data = await getDoc(productRef);
 //   return data;
 // };
-
+// payload = {}
 export const createUserDocFromAuth = async (userAuth, payload = {}) => {
   if (!userAuth) return;
   const userDocRef = doc(db, 'users', userAuth.uid);
@@ -125,7 +125,7 @@ export const createUserDocFromAuth = async (userAuth, payload = {}) => {
       console.log('error creating the user', error.message);
     }
   }
-  return userDocRef;
+  return userSnapshot;
 };
 
 export const signupWithEmailAndPassword = async (email, password) => {
@@ -146,3 +146,31 @@ export const signoutUser = async () => {
 
 export const onAuthStateChangedListener = (callback) =>
   onAuthStateChanged(auth, callback);
+
+export const getCurrentUser = () => {
+  return new Promise((resolve, reject) => {
+    const unsubscribe = onAuthStateChanged(
+      auth,
+      (userAuth) => {
+        unsubscribe();
+        resolve(userAuth);
+      },
+      reject
+    );
+  });
+};
+
+export const createAuthUserWithEmailAndPassword = async (
+  email,
+  password
+  // displayName
+) => {
+  if (!email || !password) return;
+
+  return await createUserWithEmailAndPassword(
+    auth,
+    email,
+    password
+    // displayName
+  );
+};

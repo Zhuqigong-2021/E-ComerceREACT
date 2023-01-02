@@ -6,7 +6,11 @@ import {
   createUserDocFromAuth,
   signInUserWithEmailAndPassword,
 } from '../../utils/firebase';
-
+import { useDispatch } from 'react-redux';
+import {
+  googleSignInStart,
+  emailSignInStart,
+} from '../../redux/reducer/UserSlice';
 import { FcGoogle } from 'react-icons/fc';
 import Button, { BUTTON_TYPE_CLASSES } from '../button/Button';
 const defaultSigninFields = {
@@ -14,6 +18,7 @@ const defaultSigninFields = {
   password: '',
 };
 const Signin = () => {
+  const dispatch = useDispatch();
   const [signinFields, setSigninFields] = useState(defaultSigninFields);
   const { email, password } = signinFields;
 
@@ -26,8 +31,9 @@ const Signin = () => {
   };
   const handleGoogleSignin = async (e) => {
     e.preventDefault();
-    await signinWithGooglePopup();
+    // await signinWithGooglePopup();
     // location.assign('http://localhost:5173/');
+    dispatch(googleSignInStart());
   };
   const handleEmailandPasswordSignin = async () => {
     if (!email || !password) {
@@ -35,7 +41,8 @@ const Signin = () => {
       return;
     }
     try {
-      const { user } = await signInUserWithEmailAndPassword(email, password);
+      // const { user } = await signInUserWithEmailAndPassword(email, password);
+      dispatch(emailSignInStart({ email, password }));
       // location.assign('http://localhost:5173/');
     } catch (error) {
       switch (error.code) {

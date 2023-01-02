@@ -10,23 +10,20 @@ export const CartDropdownContainer = styled.div`
   z-index: 10;
   display: flex;
   flex-direction: column;
-  top: 4rem;
-  right: 1rem;
+  top: 4.5rem;
+  right: 4rem;
   width: 13rem;
   height: 20rem;
   background-color: white;
-  border: 1px solid black;
+
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
   color: black;
   align-items: left;
   padding: 1rem;
   ${BaseButton},
   ${GoogleSignInButton},
   ${InvertedButton} {
-    position: absolute;
-    display: flex;
-
-    bottom: 1rem;
-
+    margin-top: 2.5rem;
     padding: 0.5rem 1rem;
   }
 `;
@@ -41,6 +38,6 @@ export const Reminder = styled.div`
 export const ItemContainer = styled.div`
   display: flex;
   flex-direction: column;
-  overflow-y: scroll;
+  overflow-y: auto;
   height: 250px;
 `;

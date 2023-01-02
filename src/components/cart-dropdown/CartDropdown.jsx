@@ -29,11 +29,14 @@ const CartDropdown = () => {
       </ItemContainer>
 
       {/* <GoToCheckout> */}
+      {/* <div className="checkout"> */}
       <Button
         children={'GO TO CHECKOUT'}
         buttonType={BUTTON_TYPE_CLASSES.google}
         onClick={GoToCheckoutHandler}
       />
+      {/* </div> */}
+
       {/* </GoToCheckout> */}
     </CartDropdownContainer>
   );

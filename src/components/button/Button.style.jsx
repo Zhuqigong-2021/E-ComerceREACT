@@ -3,13 +3,13 @@ import styled from 'styled-components';
 
 export const BaseButton = styled.button`
   padding: 0.5rem 1rem;
-  background-color: green;
+  background-color: #059669;
   border: none;
   outline: none;
   color: white;
   border-radius: 2px;
   &:hover {
-    background-color: darkgreen;
+    background-color: #047857;
     box-shadow: 0 2px 2px rgb(0, 0, 0, 0.3);
   }
 `;

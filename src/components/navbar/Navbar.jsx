@@ -3,27 +3,31 @@ import React, { useState, useContext, useEffect } from 'react';
 // import { CartContext } from '../../context/CartContext';
 import { Link, useNavigate } from 'react-router-dom';
 import Button from '../button/Button';
-import { signoutUser } from '../../utils/firebase';
+// import { signoutUser } from '../../utils/firebase';
 import CartIcon from '../cart-icon/CartIcon';
+
 import CartDropdown from '../cart-dropdown/CartDropdown';
 import { NavbarContainer } from './Navbar.style.jsx';
 import { useSelector, useDispatch } from 'react-redux';
-
-import { setCurrentUser } from '../../redux/reducer/UserSlice';
+import { BsShopWindow } from 'react-icons/bs';
+import { setCurrentUser, signOutStart } from '../../redux/reducer/UserSlice';
 import { selectIsCartOpen } from '../../redux/reducer/CartSlice';
 const Navbar = () => {
   // const { currentUser } = useContext(UserContext);
-
+  const dispatch = useDispatch();
   const { currentUser } = useSelector((state) => state.user);
   // const { isCartOpen } = useContext(CartContext);
   const isCartOpen = useSelector((state) => selectIsCartOpen(state));
   const navigate = useNavigate();
+  const signOutUser = () => {
+    dispatch(signOutStart());
+  };
 
   return (
     <>
       <NavbarContainer>
         <Link to="/" className="logo">
-          LOGO
+          <BsShopWindow className="lg" />
         </Link>
 
         <div className="nav__link">
@@ -31,24 +35,26 @@ const Navbar = () => {
             Shop
           </Link>
 
-          <Link to="/upload" className="nav__item">
+          {/* <Link to="/upload" className="nav__item">
             Upload
-          </Link>
+          </Link> */}
 
-          <Link to="/profile" className="nav__item">
+          {/* <Link to="/profile" className="nav__item">
             Profile
-          </Link>
+          </Link> */}
 
           {currentUser ? (
-            <Link to="/" className="nav__item">
-              <Button children="sign out" onClick={signoutUser} />
-            </Link>
+            <>
+              <Link to="/" className="nav__item">
+                <Button children="sign out" onClick={signOutUser} />
+              </Link>
+              <CartIcon className="nav__item" />
+            </>
           ) : (
             <Link to="/signup" className="nav__item">
               <Button children="sign up" />
             </Link>
           )}
-          <CartIcon />
         </div>
         {isCartOpen && <CartDropdown />}
       </NavbarContainer>

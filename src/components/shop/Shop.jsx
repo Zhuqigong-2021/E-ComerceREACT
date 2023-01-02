@@ -2,12 +2,15 @@ import React, { useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import CategoriesPreview from '../categories-preview/CategoriesPreview';
 import Category from '../category/Category';
-import {
-  fetchCategory,
-  setCategories,
-} from '../../redux/reducer/CategorySlice';
-import { getCategoriesAndDocuments } from '../../utils/firebase';
-import { useDispatch } from 'react-redux';
+// import {
+//   fetchCategory,
+//   setCategories,
+// } from '../../redux/reducer/CategorySlice';
+// import { getCategoriesAndDocuments } from '../../utils/firebase';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchCategoriesAsync } from '../../redux/saga/categorySaga';
+
+import { fetchCategoryStart } from '../../redux/reducer/CategorySlice';
 
 const Shop = () => {
   const dispatch = useDispatch();
@@ -20,10 +23,11 @@ const Shop = () => {
 
   //   getCategoriesMap();
   // }, []);
+  // const categories = useSelector((state) => state.category.categories);
+  useEffect(() => {
+    dispatch(fetchCategoryStart());
+  }, [dispatch]);
 
-  // useEffect(() => {
-  //   dispatch(fetchCategory());
-  // }, []);
   return (
     <Routes>
       <Route index element={<CategoriesPreview />} />

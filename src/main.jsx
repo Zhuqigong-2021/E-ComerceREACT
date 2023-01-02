@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
-// import './index.css';
+import './index.css';
 import { BrowserRouter } from 'react-router-dom';
 // import { UserProvider } from './context/UserContext';
 // import { CategoriesProvider } from './context/CategoriesContext';
@@ -9,8 +9,11 @@ import { BrowserRouter } from 'react-router-dom';
 import { PersistGate } from 'redux-persist/integration/react';
 import { Provider } from 'react-redux';
 import { store, persistor } from './redux/store';
-import { fetchCategory } from './redux/reducer/CategorySlice';
-store.dispatch(fetchCategory());
+import { fetchCategoriesAsync } from './redux/saga/categorySaga';
+
+// import { fetchCategory } from './redux/reducer/CategorySlice';
+// store.dispatch(fetchCategory());
+// store.dispatch(fetchCategoriesAsync());
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>

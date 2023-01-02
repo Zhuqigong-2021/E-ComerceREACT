@@ -5,32 +5,53 @@ export const BackgroundImage = styled.div`
   height: 100%;
   background-size: cover;
   background-position: center;
+  background-color: hsl(120, 5%, 30%);
   background-image: ${({ imageUrl }) => `url(${imageUrl})`};
+
+  background-blend-mode: overlay;
+  &:hover {
+    background-color: hsl(120, 5%, 60%);
+  }
 `;
 
 export const Body = styled.div`
   height: 90px;
+  z-index: 100;
   padding: 0 25px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border: 1px solid black;
-  background-color: white;
-  opacity: 0.7;
+  // border: 1px solid white;
+  // background-color: white;
+  opacity: 1;
   position: absolute;
+  color: white;
 
   h2 {
     font-weight: bold;
     margin: 0 6px 0;
     font-size: 22px;
-    color: #4a4a4a;
+
+    color: white;
     text-transform: uppercase;
+    &:hover {
+      color: black;
+    }
   }
 
   p {
+    margin-top: 1.5rem;
     font-weight: lighter;
     font-size: 16px;
+    color: white;
+    border: 1px solid white;
+    padding: 0.2em 0.5em;
+    border-radius: 2px;
+    &:hover {
+      background-color: black;
+      border: none;
+    }
   }
 `;
 
@@ -41,7 +62,7 @@ export const DirectoryItemContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid black;
+  // border: 1px solid black;
   margin: 0 7.5px 15px;
   overflow: hidden;
 

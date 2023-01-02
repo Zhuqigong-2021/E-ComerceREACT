@@ -5,9 +5,8 @@ import { useParams } from 'react-router-dom';
 import ProductCard from '../product-card/ProductCard';
 import { useSelector } from 'react-redux';
 import {
+  isLoading,
   selectCategoriesMap,
-  getCategoryStatus,
-  getCategoryError,
 } from '../../redux/reducer/CategorySlice';
 import { selectCartItems } from '../../redux/reducer/CartSlice';
 
@@ -17,23 +16,24 @@ const Category = () => {
   // const { categoriesMap } = useSelector((state) => state.category);
   // console.log(categoriesMap);
   const categoriesMap = useSelector(selectCategoriesMap);
+  // const categoriesMap = useSelector((state) => state.category.categories);
   const cartItems = useSelector((state) => selectCartItems(state));
 
   const [products, setProducts] = useState(categoriesMap[category]);
 
-  const status = useSelector(getCategoryStatus);
-  const error = useSelector(getCategoryError);
-  console.log(status);
-  console.log(categoriesMap);
+  // const status = useSelector(getCategoryStatus);
+  // const error = useSelector(getCategoryError);
+  // console.log(status);
+  // console.log(categoriesMap);
 
   useEffect(() => {
     setProducts(categoriesMap[category]);
   }, [category, categoriesMap]);
 
   let content;
-  if (status === 'loading') {
+  if (!isLoading) {
     content = <p>"Loading..."</p>;
-  } else if (status === 'succeeded') {
+  } else {
     content = (
       <CategoryContainer>
         {products &&
@@ -47,9 +47,26 @@ const Category = () => {
       </CategoryContainer>
     );
   }
-  if (status === 'failed') {
-    content = <p> {error} </p>;
-  }
+
+  // if (status === 'loading') {
+  //
+  // } else if (status === 'succeeded') {
+  //   content = (
+  //     <CategoryContainer>
+  //       {products &&
+  //         products.map((product) => (
+  //           <ProductCard
+  //             key={product.id}
+  //             product={product}
+  //             cartItems={cartItems}
+  //           />
+  //         ))}
+  //     </CategoryContainer>
+  //   );
+  // }
+  // if (status === 'failed') {
+  //   content = <p> {error} </p>;
+  // }
 
   return (
     <Fragment>

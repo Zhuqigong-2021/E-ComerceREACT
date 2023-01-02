@@ -7,57 +7,65 @@ import { getCategoriesAndDocuments } from '../../utils/firebase';
 
 const initialState = {
   categories: [],
-  status: 'idle',
-  error: null,
+  // status: 'idle',
+  // error: null,
+  isLoading: false,
 };
 //'idle' | 'loading'| 'succeeded' | 'failed"
-export const fetchCategory = createAsyncThunk(
-  'category/fetchCategory',
-  async () => {
-    try {
-      const response = await getCategoriesAndDocuments();
+// export const fetchCategory = createAsyncThunk(
+//   'category/fetchCategory',
+//   async () => {
+//     try {
+//       const response = await getCategoriesAndDocuments();
 
-      return response;
-    } catch (err) {
-      return err.message;
-    }
-  }
-);
+//       return response;
+//     } catch (err) {
+//       return err.message;
+//     }
+//   }
+// );
 
 export const CategorySlice = createSlice({
   name: 'category',
   initialState,
   reducers: {
-    // setCategories: (state, action) => {
-    //   return { ...state, categories: action.payload };
-    // },
+    fetchCategoryStart: (state) => {
+      state.isLoading = true;
+    },
+    fetchCategorySuccess: (state, action) => {
+      state.categories = action.payload;
+      state.isLoading = false;
+    },
+    fetchCategoryFailed: (state) => {
+      state.isLoading = false;
+    },
   },
-  extraReducers(builder) {
-    builder
-      .addCase(fetchCategory.pending, (state) => {
-        // state.status = 'loading';
-        return { ...state, status: 'loading' };
-      })
-      .addCase(fetchCategory.fulfilled, (state, action) => {
-        // state.status = 'succeeded';
-        // state.categories = [...action.payload];
-        return {
-          ...state,
-          status: 'succeeded',
-          categories: action.payload,
-        };
-      })
-      .addCase(fetchCategory.rejected, (state, action) => {
-        // state.status = 'failed';
-        // state.error = action.error.message;
-        return { ...state, status: 'failed', error: action.error.message };
-      });
-  },
+  //this is for thunk
+  // extraReducers(builder) {
+  //   builder
+  //     .addCase(fetchCategory.pending, (state) => {
+  //       return { ...state, status: 'loading' };
+  //     })
+  //     .addCase(fetchCategory.fulfilled, (state, action) => {
+  //       return {
+  //         ...state,
+  //         status: 'succeeded',
+  //         categories: action.payload,
+  //       };
+  //     })
+  //     .addCase(fetchCategory.rejected, (state, action) => {
+  //       return { ...state, status: 'failed', error: action.error.message };
+  //     });
+  // },
 });
 
-export const { setCategories } = CategorySlice.actions;
-export const getCategoryStatus = (state) => state.category.status;
-export const getCategoryError = (state) => state.category.error;
+export const { fetchCategoryStart, fetchCategorySuccess, fetchCategoryFailed } =
+  CategorySlice.actions;
+
+//this is for thunk
+// export const getCategoryStatus = (state) => state.category.status;
+// export const getCategoryError = (state) => state.category.error;
+export const isLoading = (state) => state.catergory.isLoading;
 const selectCategoryReducer = (state) => state.category;
 const selectCategories = createSelector(
   [selectCategoryReducer],

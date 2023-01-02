@@ -7,6 +7,7 @@ import { selectCartItems } from '../../redux/reducer/CartSlice';
 
 const CategoryPreview = ({ title, products }) => {
   // const cartItems = useSelector(selectCartItems);
+
   return (
     <CategoryPreviewStyle>
       <h2>

@@ -36,8 +36,9 @@ const Checkout = () => {
           );
         })}
       </CheckoutItemStyle>
-
-      <span>Total:$ {cartTotal}</span>
+      <div className="total">
+        <span>Total:$ {cartTotal}</span>
+      </div>
     </CheckoutStyle>
   );
 };

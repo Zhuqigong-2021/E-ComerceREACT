@@ -1,12 +1,15 @@
 import styled from 'styled-components';
 export const CheckoutItemstyle = styled.div`
   position: relative;
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
   align-items: center;
-  justify-content: space-around;
-  height: 240px;
-  border: 1px solid red;
-  margin-bottom: 2rem;
+  justify-items: center;
+  height: 200px;
+
+  box-shadow: 0 0 3px darkgreen;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
   .arrow {
     cursor: pointer;
   }
@@ -17,12 +20,13 @@ export const CheckoutItemstyle = styled.div`
 export const CartItemImageContainer = styled.div`
   display: flex;
   border: 1px solid black;
-  width: 10%;
-  height: 50%;
+  width: 100%;
+  height: 100%;
+  transform: scale(0.6);
 `;
 
-export const DescriptionContainer = styled.div`
-  display: flex;
-  justify-content: space-around;
-  margin-right: 8rem;
-`;
+// export const DescriptionContainer = styled.div`
+//   display: flex;
+//   justify-content: space-around;
+//   margin-right: 8rem;
+// `;

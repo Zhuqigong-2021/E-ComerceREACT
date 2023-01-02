@@ -12,7 +12,7 @@ import {
   selectCartItems,
 } from '../../redux/reducer/CartSlice';
 import { useDispatch } from 'react-redux';
-
+import { GoTrashcan } from 'react-icons/go';
 const CheckoutItem = ({ cartItems, cartItem }) => {
   const dispatch = useDispatch();
   const { id, price, quantity, imageUrl, name } = cartItem;
@@ -48,14 +48,15 @@ const CheckoutItem = ({ cartItems, cartItem }) => {
         <span onClick={removeItemHandler} className="arrow">
           &#10094;
         </span>
-        <span className="value">&nbsp;&nbsp;{quantity}&nbsp;&nbsp;</span>
+        <span className="value">&nbsp;{quantity}&nbsp;</span>
         <span onClick={addItemHandler} className="arrow">
           &#10095;
         </span>
       </div>
 
-      <span>{price * quantity}</span>
-      <span onClick={clearItemHandler}> &#10005;</span>
+      <span>${price * quantity}</span>
+      {/* <span onClick={clearItemHandler}> &#10005;</span> */}
+      <GoTrashcan onClick={clearItemHandler} />
       {/* </DescriptionContainer> */}
     </CheckoutItemstyle>
   );

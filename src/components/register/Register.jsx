@@ -7,20 +7,23 @@ import {
   signupWithEmailAndPassword,
   signinWithGooglePopup,
 } from '../../utils/firebase';
-
+import { useDispatch } from 'react-redux';
+import { googleSignInStart } from '../../redux/reducer/UserSlice';
 import { FcGoogle } from 'react-icons/fc';
 import FormInput from '../formInput/FormInput';
 import Button, { BUTTON_TYPE_CLASSES } from '../button/Button';
+import { signUpStart } from '../../redux/reducer/UserSlice';
 
 const defaultFormField = {
-  username: '',
+  displayName: '',
   email: '',
   password: '',
   confirmPassword: '',
 };
 const Register = () => {
+  const dispatch = useDispatch();
   const [formFields, setFormfields] = useState(defaultFormField);
-  const { username, email, password, confirmPassword } = formFields;
+  const { displayName, email, password, confirmPassword } = formFields;
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -31,15 +34,17 @@ const Register = () => {
   };
   const handleSignup = async () => {
     try {
-      const { user } = await signupWithEmailAndPassword(email, password);
+      // const { user } = await signupWithEmailAndPassword(email, password);
 
-      const snapshot = await createUserDocFromAuth(user, {
-        displayName: username,
-      });
+      // const snapshot = await createUserDocFromAuth(user, {
+      //   displayName: username,
+      // });
       // setCurrentUser(user);
       // location.assign('http://localhost:5173/');
+
+      const data = dispatch(signUpStart({ email, password, displayName }));
+      console.log(data);
     } catch (error) {
-      console.log(error);
       switch (error.code) {
         case 'auth/email-already-in-use':
           alert('email is already in use');
@@ -63,9 +68,10 @@ const Register = () => {
   };
   const handleGoogleSignin = async (e) => {
     e.preventDefault();
-    await signinWithGooglePopup();
+    // await signinWithGooglePopup();
     // location.assign('http://localhost:5173/');
     // setCurrentUser(user);
+    dispatch(googleSignInStart());
   };
   return (
     <RegisterContainer>
@@ -73,8 +79,8 @@ const Register = () => {
         <FormInput
           label="user name"
           type="text"
-          name="username"
-          value={username}
+          name="displayName"
+          value={displayName}
           onChange={(e) => handleChange(e)}
           required
         />

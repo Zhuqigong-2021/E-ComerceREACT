@@ -7,17 +7,21 @@ import { CardContainer } from './CategoriesPreviewstyle';
 import { selectCategoriesMap } from '../../redux/reducer/CategorySlice';
 const CategoriesPreview = () => {
   // const { categoriesMap } = useContext(CategoriesContext);
-  const categories = useSelector((state) => selectCategoriesMap(state));
+  //thunk:
+  // const categories = useSelector((state) => selectCategoriesMap(state));
   // console.log(categories);
+  const categories = useSelector(selectCategoriesMap);
+
   return (
-    <Fragment>
+    <CardContainer>
       {Object.keys(categories).map((title) => {
         const products = categories[title];
+
         return (
           <CategoryPreview key={title} products={products} title={title} />
         );
       })}
-    </Fragment>
+    </CardContainer>
   );
 };
 
