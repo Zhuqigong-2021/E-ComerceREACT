@@ -1,23 +1,29 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, lazy, Suspense } from 'react';
 
 import {
   onAuthStateChangedListener,
   createUserDocFromAuth,
 } from '../src/utils/firebase';
-import {
-  Home,
-  Layout,
-  Shop,
-  Profile,
-  Register,
-  Signin,
-  Checkout,
-} from './components/';
+// import {
+//   Home,
+//   Layout,
+//   Shop,
+//   Profile,
+//   Register,
+//   Signin,
+//   Checkout,
+// } from './components/';
 import { Routes, Route, Navigate } from 'react-router-dom';
 // import GlobalStyle from './index.style';
 import { useDispatch, useSelector } from 'react-redux';
 import { checkUserSession } from '../src/redux/reducer/UserSlice';
-import { setCurrentUser } from '../src/redux/reducer/UserSlice';
+import Spinner from './components/spinner/Spinner';
+const Home = lazy(() => import('../src/components/home/Home'));
+const Layout = lazy(() => import('../src/components/layout/Layout'));
+const Shop = lazy(() => import('../src/components/shop/Shop'));
+const Register = lazy(() => import('../src/components/register/Register'));
+const Signin = lazy(() => import('../src/components/signin/Signin'));
+const Checkout = lazy(() => import('../src/components/checkout/Checkout'));
 
 function App() {
   const dispatch = useDispatch();
@@ -39,23 +45,24 @@ function App() {
   return (
     <div className="App">
       {/* <GlobalStyle /> */}
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} />
-          <Route path="shop/*" element={<Shop />} />
-          {/* <Route path="upload" element={<Upload />} /> */}
-          {/* <Route path="profile" element={<Profile />} /> */}
-          <Route
-            path="signup"
-            element={currentUser ? <Navigate to="/" /> : <Register />}
-          />
-          <Route
-            path="signin"
-            element={currentUser ? <Navigate to="/" /> : <Signin />}
-          />
-          <Route path="checkout" element={<Checkout />} />
-        </Route>
-      </Routes>
+      <Suspense fallback={<Spinner />}>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<Home />} />
+            <Route path="shop/*" element={<Shop />} />
+
+            <Route
+              path="signup"
+              element={currentUser ? <Navigate to="/" /> : <Register />}
+            />
+            <Route
+              path="signin"
+              element={currentUser ? <Navigate to="/" /> : <Signin />}
+            />
+            <Route path="checkout" element={<Checkout />} />
+          </Route>
+        </Routes>
+      </Suspense>
     </div>
   );
 }
