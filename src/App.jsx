@@ -13,14 +13,15 @@ import {
   Signin,
   Checkout,
 } from './components/';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 // import GlobalStyle from './index.style';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { checkUserSession } from '../src/redux/reducer/UserSlice';
 import { setCurrentUser } from '../src/redux/reducer/UserSlice';
 
 function App() {
   const dispatch = useDispatch();
+  const { currentUser } = useSelector((state) => state.user);
   // useEffect(() => {
   //   const unsubscribe = onAuthStateChangedListener((user) => {
   //     if (user) {
@@ -44,8 +45,14 @@ function App() {
           <Route path="shop/*" element={<Shop />} />
           {/* <Route path="upload" element={<Upload />} /> */}
           {/* <Route path="profile" element={<Profile />} /> */}
-          <Route path="signup" element={<Register />} />
-          <Route path="signin" element={<Signin />} />
+          <Route
+            path="signup"
+            element={currentUser ? <Navigate to="/" /> : <Register />}
+          />
+          <Route
+            path="signin"
+            element={currentUser ? <Navigate to="/" /> : <Signin />}
+          />
           <Route path="checkout" element={<Checkout />} />
         </Route>
       </Routes>

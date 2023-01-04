@@ -56,7 +56,7 @@ const Navbar = () => {
             </Link>
           )}
         </div>
-        {isCartOpen && <CartDropdown />}
+        {currentUser && isCartOpen && <CartDropdown />}
       </NavbarContainer>
     </>
   );

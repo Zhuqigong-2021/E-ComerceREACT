@@ -2,8 +2,8 @@ import { createSlice, createSelector } from '@reduxjs/toolkit';
 // import { updateCartItems } from '../../utils/reducer/reducer.utils';
 
 const initialState = {
-  isCartOpen: false,
   cartItems: [],
+  isCartOpen: false,
 };
 
 // const CART_ACTION_TYPES = {
