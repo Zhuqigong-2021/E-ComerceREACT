@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 export const CheckoutItemstyle = styled.div`
-  // position: relative;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   align-items: center;
@@ -17,6 +16,10 @@ export const CheckoutItemstyle = styled.div`
   .value {
     margin: 0 10px;
   }
+  @media (max-width: 500px) {
+    font-size: 10px;
+    height: 160px;
+  }
 `;
 export const CartItemImageContainer = styled.div`
   display: inline-block;
@@ -24,6 +27,9 @@ export const CartItemImageContainer = styled.div`
   width: 100%;
   height: 200px;
   transform: scale(0.6);
+  @media (max-width: 500px) {
+    height: 120px;
+  }
 `;
 
 // export const DescriptionContainer = styled.div`

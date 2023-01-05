@@ -36,10 +36,11 @@ const Checkout = () => {
             />
           );
         })}
+
+        <div className="total">
+          <span>Total:$ {cartTotal}</span>
+        </div>
       </CheckoutItemStyle>
-      <div className="total">
-        <span>Total:$ {cartTotal}</span>
-      </div>
       <PaymentForm />
     </CheckoutStyle>
   );

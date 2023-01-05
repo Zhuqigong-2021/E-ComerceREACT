@@ -1,13 +1,13 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { Outlet } from 'react-router-dom';
 import Navbar from '../navbar/Navbar';
 
 const Layout = () => {
   return (
-    <div>
+    <Fragment>
       <Navbar />
       <Outlet />
-    </div>
+    </Fragment>
   );
 };
 
