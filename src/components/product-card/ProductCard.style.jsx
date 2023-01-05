@@ -36,10 +36,11 @@ export const ProductInfo = styled.div`
       display:block;
       position:absolute;
       bottom:0;
-
-      color: black;
+     
+      color: white;
       border: 0;
-      // text-align:left;
+      background-image: linear-gradient(to right, black, rgb(0, 0, 0, 0.7)); 
+
       &:hover{
         color:white;
         background-image: linear-gradient(to right, black, rgb(0, 0, 0, 0.1));

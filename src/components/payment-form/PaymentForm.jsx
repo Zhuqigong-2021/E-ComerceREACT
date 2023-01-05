@@ -2,11 +2,12 @@ import React, { useState } from 'react';
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import { PaymentFormStyle, FormContainer, Success } from './PaymentForm.style';
 import Button, { BUTTON_TYPE_CLASSES } from '../button/Button';
-import { useSelector } from 'react-redux';
-import { selectCartTotal } from '../../redux/reducer/CartSlice';
+import { useSelector, useDispatch } from 'react-redux';
+import { selectCartTotal, clearCartItems } from '../../redux/reducer/CartSlice';
 import { selectCurrentUser } from '../../redux/reducer/UserSlice';
 import { motion } from 'framer-motion';
 const PaymentForm = () => {
+  const dispatch = useDispatch();
   const stripe = useStripe();
   const elements = useElements();
   const amount = useSelector(selectCartTotal);
@@ -16,6 +17,7 @@ const PaymentForm = () => {
   const [isPaymentSuccess, setPaymentSuccess] = useState(false);
   const paymentHandler = async (e) => {
     e.preventDefault();
+
     if (!stripe || !elements) {
       return;
     }
@@ -45,6 +47,7 @@ const PaymentForm = () => {
     } else {
       if (paymentResult.paymentIntent.status === 'succeeded') {
         setPaymentSuccess(true);
+        dispatch(clearCartItems());
       }
     }
   };

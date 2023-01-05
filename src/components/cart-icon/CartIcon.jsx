@@ -26,7 +26,12 @@ const CartIcon = () => {
         className="shopping_bag"
         onClick={() => dispatch(setIsCartOpen(!isCartOpen))}
       />
-      <span className="count">{cartCount}</span>
+      <span
+        className="count"
+        onClick={() => dispatch(setIsCartOpen(!isCartOpen))}
+      >
+        {cartCount}
+      </span>
     </CartIconStyle>
   );
 };

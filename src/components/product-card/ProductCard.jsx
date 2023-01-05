@@ -13,12 +13,16 @@ const ProductCard = ({ product }) => {
   const dispatch = useDispatch();
   const { name, price, imageUrl } = product;
   const cartItems = useSelector(selectCartItems);
+  const { currentUser } = useSelector((state) => state.user);
   // const { addItemToCart } = useContext(CartContext);
   // const cartItems = dispatch((state) => setCartItems(state));
   // console.log(cartItems);
   // const addProductToCart = () => addItemToCart(cartItems, product);
-  const addProductToCart = () =>
+  const addProductToCart = () => {
+    if (!currentUser) return;
     dispatch(setCartItems(addItemToCart(cartItems, product)));
+  };
+
   return (
     <ProductCardStyle>
       <img src={imageUrl} alt={name} />

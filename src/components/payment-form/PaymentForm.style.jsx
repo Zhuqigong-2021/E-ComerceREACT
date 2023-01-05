@@ -14,9 +14,6 @@ export const PaymentFormStyle = styled.div`
   margin: 1rem 4rem;
   padding: 1rem;
   background-color: rgba(255, 255, 255, 0.5);
-  // @media (max-width: 600px) {
-  //   margin: 1rem 1rem;
-  // }
 `;
 
 export const FormContainer = styled.form`
