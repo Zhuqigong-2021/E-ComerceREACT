@@ -11,7 +11,9 @@ export const SigninContainer = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    border: 1px solid black;
+
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.7);
+    background-color: rgba(10, 200, 25, 0.1);
     padding: 2rem;
     row-gap: 2rem;
     align-items: flex-start;
@@ -29,6 +31,12 @@ export const SigninContainer = styled.div`
     .signin__group {
       display: flex;
       column-gap: 1rem;
+      @media (max-width: 500px) {
+        flex-direction: column;
+        row-gap: 1rem;
+        justify-items: stretch;
+        width: 100%;
+      }
     }
   }
 `;

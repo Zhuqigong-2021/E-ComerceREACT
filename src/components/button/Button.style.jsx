@@ -3,6 +3,7 @@ import { SpinnerContainer } from '../spinner/Spinner.style';
 
 export const BaseButton = styled.button`
   padding: 0.5rem 1rem;
+
   background-color: #059669;
   border: none;
   outline: none;
@@ -13,17 +14,23 @@ export const BaseButton = styled.button`
     background-color: #047857;
     box-shadow: 0 2px 2px rgb(0, 0, 0, 0.3);
   }
+  @media (max-width: 300px) {
+    font-size: 10px;
+  } ;
 `;
 
 export const GoogleSignInButton = styled(BaseButton)`
   background-color: black;
-
+  width: 100%;
   box-shadow: 0 2px 2px rgb(0, 0, 0, 0.3);
 
   &:hover {
     background-color: rgb(0, 0, 0, 0.9);
     box-shadow: 0 4px 4px rgb(0, 0, 0, 0.3);
   }
+  @media (max-width: 300px) {
+    font-size: 10px;
+  } ;
 `;
 
 export const InvertedButton = styled(BaseButton)`
@@ -37,6 +44,9 @@ export const InvertedButton = styled(BaseButton)`
     color: white;
     box-shadow: 0 4px 4px rgb(0, 0, 0, 0.3);
   }
+  @media (max-width: 300px) {
+    font-size: 10px;
+  } ;
 `;
 
 export const ButtonSpinner = styled(SpinnerContainer)`

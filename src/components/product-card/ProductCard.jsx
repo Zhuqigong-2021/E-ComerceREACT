@@ -25,12 +25,15 @@ const ProductCard = ({ product }) => {
       <ProductInfo>
         <span>{name}</span>
         <span>{price}</span>
-        <Button
-          buttonType={BUTTON_TYPE_CLASSES.inverted}
-          onClick={addProductToCart}
-        >
-          Add to card
-        </Button>
+        <div className="bgtag">
+          <Button
+            buttonType={BUTTON_TYPE_CLASSES.inverted}
+            onClick={addProductToCart}
+            className="cardbtn"
+          >
+            Add to card
+          </Button>
+        </div>
       </ProductInfo>
     </ProductCardStyle>
   );

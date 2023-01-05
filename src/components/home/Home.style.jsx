@@ -6,7 +6,10 @@ const HomeContainer = styled.div`
   flex: 1;
   justify-content: center;
   padding: 0 4rem;
-  // background-color: black;
+
   align-items: stretch;
+  @media (max-width: 500px) {
+    padding: 0 2rem;
+  }
 `;
 export default HomeContainer;

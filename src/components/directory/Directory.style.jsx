@@ -1,12 +1,21 @@
 import styled from 'styled-components';
 
 export const DirectoryContainer = styled.div`
-  margin-top: 5rem;
+  margin-top: 4rem;
 
   width: 100%;
-  // border: 1px solid red;
 
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  @media (max-width: 500px) {
+    margin-top: 2rem;
+    flex-direction: column;
+  }
+  @media (orientation: landscape) {
+    margin-top: 1rem;
+  }
+  @media (max-width: 580px) &(min-width:500px) {
+    margin-top: 0rem;
+  }
 `;
