@@ -8,15 +8,17 @@ import {
   ItemContainer,
   Reminder,
 } from './CartDropdown.style';
-import { useSelector } from 'react-redux';
-import { selectCartItems } from '../../redux/reducer/CartSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectCartItems, setIsCartOpen } from '../../redux/reducer/CartSlice';
 const CartDropdown = () => {
   // const { cartItems } = useContext(CartContext);
+  const dispatch = useDispatch();
   const cartItems = useSelector((state) => selectCartItems(state));
 
   const navigate = useNavigate();
   const GoToCheckoutHandler = () => {
     navigate('/checkout');
+    dispatch(setIsCartOpen(false));
   };
   return (
     <CartDropdownContainer>
@@ -35,6 +37,7 @@ const CartDropdown = () => {
         buttonType={BUTTON_TYPE_CLASSES.google}
         onClick={GoToCheckoutHandler}
       />
+
       {/* </div> */}
 
       {/* </GoToCheckout> */}

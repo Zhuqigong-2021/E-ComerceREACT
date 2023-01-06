@@ -16,6 +16,9 @@ export const CheckoutItemstyle = styled.div`
   .value {
     margin: 0 10px;
   }
+  .del {
+    cursor: pointer;
+  }
   @media (max-width: 500px) {
     font-size: 10px;
     height: 160px;
@@ -27,6 +30,7 @@ export const CartItemImageContainer = styled.div`
   width: 100%;
   height: 200px;
   transform: scale(0.6);
+
   @media (max-width: 500px) {
     height: 120px;
   }

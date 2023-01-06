@@ -6,5 +6,6 @@
   box-sizing: border-box;
 }
 body {
-  background-color: #f7fee7;
+  /* background-color: #f7fee7; */
+  background-color: rgba(247, 255, 238, 0.7);
 }

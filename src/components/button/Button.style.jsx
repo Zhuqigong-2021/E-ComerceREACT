@@ -13,6 +13,7 @@ export const BaseButton = styled.button`
   &:hover {
     background-color: #047857;
     box-shadow: 0 2px 2px rgb(0, 0, 0, 0.3);
+    cursor: pointer;
   }
   @media (max-width: 300px) {
     font-size: 10px;
@@ -27,6 +28,7 @@ export const GoogleSignInButton = styled(BaseButton)`
   &:hover {
     background-color: rgb(0, 0, 0, 0.9);
     box-shadow: 0 4px 4px rgb(0, 0, 0, 0.3);
+    cursor: pointer;
   }
   @media (max-width: 300px) {
     font-size: 10px;
@@ -43,6 +45,7 @@ export const InvertedButton = styled(BaseButton)`
     background-color: rgb(0, 0, 0);
     color: white;
     box-shadow: 0 4px 4px rgb(0, 0, 0, 0.3);
+    cursor: pointer;
   }
   @media (max-width: 300px) {
     font-size: 10px;

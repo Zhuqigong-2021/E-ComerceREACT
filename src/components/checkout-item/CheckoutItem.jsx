@@ -16,7 +16,7 @@ import { useDispatch } from 'react-redux';
 import { GoTrashcan } from 'react-icons/go';
 const CheckoutItem = ({ cartItems, cartItem }) => {
   const dispatch = useDispatch();
-  const { id, price, quantity, imageUrl, name } = cartItem;
+  const { price, quantity, imageUrl, name } = cartItem;
   // const { addItemToCart, removeItemToCart, clearItemFromCart } =
   //   useContext(CartContext);
 
@@ -46,7 +46,14 @@ const CheckoutItem = ({ cartItems, cartItem }) => {
       {/* <DescriptionContainer> */}
       <span> {name} </span>
       <div>
-        <span onClick={removeItemHandler} className="arrow">
+        <span
+          onClick={removeItemHandler}
+          style={{
+            color: quantity === 1 ? 'grey' : 'black',
+            cursor: quantity === 1 ? 'not-allowed' : 'pointer',
+          }}
+          className="arrow"
+        >
           &#10094;
         </span>
         <span className="value">&nbsp;{quantity}&nbsp;</span>
@@ -57,7 +64,8 @@ const CheckoutItem = ({ cartItems, cartItem }) => {
 
       <span>${price * quantity}</span>
       {/* <span onClick={clearItemHandler}> &#10005;</span> */}
-      <GoTrashcan onClick={clearItemHandler} />
+
+      <GoTrashcan onClick={clearItemHandler} className="del" />
       {/* </DescriptionContainer> */}
     </CheckoutItemstyle>
   );

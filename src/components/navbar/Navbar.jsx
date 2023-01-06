@@ -22,12 +22,14 @@ const Navbar = () => {
   const signOutUser = () => {
     dispatch(signOutStart());
   };
-
+  // console.log(currentUser.displayName);
+  // let user = currentUser ? currentUser.displayName : null;
   return (
     <>
       <NavbarContainer>
         <Link to="/" className="logo">
           <BsShopWindow className="lg" />
+          {/* <h2> welcome {currentUser.displayName}</h2> */}
         </Link>
 
         <div className="nav__link">
@@ -56,6 +58,7 @@ const Navbar = () => {
             </Link>
           )}
         </div>
+
         {currentUser && isCartOpen && <CartDropdown />}
       </NavbarContainer>
     </>

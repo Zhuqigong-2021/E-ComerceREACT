@@ -28,18 +28,21 @@ const addCartItem = (cartItems, productToAdd) => {
 };
 const removeCartItem = (cartItems, cartItemToRemove) => {
   //find cart item to remove
-  const existingCartItem = cartItems.find(
-    (cartItem) => cartItem.id === cartItemToRemove.id
-  );
-
+  // const existingCartItem = cartItems.find(
+  //   (cartItem) => cartItem.id === cartItemToRemove.id
+  // );
+  //
   // to check if the quantity equals to one,if yes remove the item from the cart
-  if (existingCartItem && existingCartItem.quantity === 1) {
-    return cartItems.filter((cartItem) => cartItem.id !== cartItemToRemove.id);
-  }
+  // if (existingCartItem && existingCartItem.quantity === 1) {
+  //   return cartItems.filter((cartItem) => cartItem.id !== cartItemToRemove.id);
+  // }
+
   // return back the item with reduced quantity
   return cartItems.map((cartItem) =>
     cartItem.id === cartItemToRemove.id
-      ? { ...cartItem, quantity: cartItem.quantity - 1 }
+      ? cartItem.quantity > 1
+        ? { ...cartItem, quantity: cartItem.quantity - 1 }
+        : { ...cartItem, quantity: 1 }
       : cartItem
   );
 };

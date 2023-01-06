@@ -8,6 +8,8 @@ import {
   setCartItems,
 } from '../../redux/reducer/CartSlice';
 import { useDispatch, useSelector } from 'react-redux';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 // import { useSelector, useDispatch } from 'react-redux';
 const ProductCard = ({ product }) => {
   const dispatch = useDispatch();
@@ -21,11 +23,24 @@ const ProductCard = ({ product }) => {
   const addProductToCart = () => {
     if (!currentUser) return;
     dispatch(setCartItems(addItemToCart(cartItems, product)));
+
+    const shoppingbag = document.querySelector('.shopping_bag');
+    // const addToCart = document.querySelectorAll('.cardbtn');
+    // shoppingbag.style.transform = 'translate(0px 5px)';
   };
 
   return (
     <ProductCardStyle>
-      <img src={imageUrl} alt={name} />
+      <LazyLoadImage
+        effect="blur"
+        src={imageUrl}
+        alt={name}
+        width="100%"
+        height="100%"
+        threshold={0.1}
+        useIntersectionObserver={true}
+        visibleByDefault={false}
+      />
       <ProductInfo>
         <span>{name}</span>
         <span>{price}</span>
