@@ -39,19 +39,19 @@ const categories = [
 const Directory = () => {
   const { currentUser } = useSelector((state) => state.user);
   return (
-    <DirectoryContainer>
+    <DirectoryContainer className="noselect">
       {categories.map((category) => (
         <DirectoryItem key={category.id} category={category} />
       ))}
       {currentUser ? (
-        <motion.h4
+        <motion.div
           initial={{ x: -100 }}
           animate={{ x: 0 }}
           transition={{ duration: 2, ease: [0.5, 0.71, 1, 1.5] }}
           className="greeting"
         >
           Welcome {currentUser.displayName} !
-        </motion.h4>
+        </motion.div>
       ) : (
         ''
       )}

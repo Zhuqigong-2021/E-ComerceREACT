@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-export const NavbarContainer = styled.ul`
+export const NavbarContainer = styled.div`
   position: relative;
   display: flex;
   justify-content: space-between;
@@ -10,7 +10,8 @@ export const NavbarContainer = styled.ul`
 
   .logo {
     text-decoration: none;
-    color: #047857;
+    // color: #047857;
+    color: #00120b;
 
     .lg {
       transform: scale(2);
@@ -26,7 +27,9 @@ export const NavbarContainer = styled.ul`
     text-decoration: none;
     list-style-type: none;
     margin-left: 2rem;
-    color: #047857;
+    // color: #047857;
+    color: #00120b;
+    font-weight: 600;
 
     text-transform: lowercase;
     &:hover {

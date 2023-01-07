@@ -4,7 +4,8 @@ import { SpinnerContainer } from '../spinner/Spinner.style';
 export const BaseButton = styled.button`
   padding: 0.5rem 1rem;
 
-  background-color: #059669;
+  // background-color: #059669;
+  background-color: #00120b;
   border: none;
   outline: none;
   color: white;

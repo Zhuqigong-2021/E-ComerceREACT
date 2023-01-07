@@ -17,7 +17,7 @@ const Checkout = () => {
 
   return (
     <CheckoutStyle>
-      <CartHeader>
+      <CartHeader className="noselect">
         <div>Product</div>
         <div>Description</div>
         <div>Quantity</div>

@@ -39,7 +39,7 @@ const CheckoutItem = ({ cartItems, cartItem }) => {
 
   // const clearItemHandler = () => clearItemFromCart(cartItems, cartItem);
   return (
-    <CheckoutItemstyle>
+    <CheckoutItemstyle className="noselect">
       <CartItemImageContainer>
         <img src={imageUrl} alt={name} height="100%" width="100%" />
       </CartItemImageContainer>
