@@ -28,7 +28,7 @@ export const store = configureStore({
   //     .concat(import.meta.NODE_ENV !== 'production' && logger)
   //     .concat(sagaMiddleware)
   //     .filter(Boolean),
-  middleware: [sagaMiddleware, logger],
+  middleware: [sagaMiddleware],
 });
 // console.log(import.meta.NODE_ENV);
 

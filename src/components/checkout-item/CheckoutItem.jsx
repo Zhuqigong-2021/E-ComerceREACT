@@ -39,13 +39,13 @@ const CheckoutItem = ({ cartItems, cartItem }) => {
 
   // const clearItemHandler = () => clearItemFromCart(cartItems, cartItem);
   return (
-    <CheckoutItemstyle className="noselect">
+    <CheckoutItemstyle>
       <CartItemImageContainer>
         <img src={imageUrl} alt={name} height="100%" width="100%" />
       </CartItemImageContainer>
       {/* <DescriptionContainer> */}
       <span> {name} </span>
-      <div>
+      <div className="noselect">
         <span
           onClick={removeItemHandler}
           style={{
@@ -62,7 +62,7 @@ const CheckoutItem = ({ cartItems, cartItem }) => {
         </span>
       </div>
 
-      <span>${price * quantity}</span>
+      <span className="noselect">${price * quantity}</span>
       {/* <span onClick={clearItemHandler}> &#10005;</span> */}
 
       <GoTrashcan onClick={clearItemHandler} className="del" />

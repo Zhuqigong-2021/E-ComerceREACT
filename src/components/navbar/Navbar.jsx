@@ -27,8 +27,12 @@ const Navbar = () => {
   return (
     <>
       <NavbarContainer>
-        <Link to="/" className="logo">
-          <BsShopWindow className="lg" />
+        <Link
+          to="/"
+          className="logo"
+          aria-label="Redirect you to the home page"
+        >
+          <BsShopWindow className="lg" alt="shopping_logo" />
           {/* <h2> welcome {currentUser.displayName}</h2> */}
         </Link>
 

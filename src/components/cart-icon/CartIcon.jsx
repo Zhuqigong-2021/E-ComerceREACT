@@ -22,7 +22,6 @@ const CartIcon = () => {
   // const cartCount = useSelector((state) => selectCartCount(state));
   useEffect(() => {
     setBounce(!bounce);
-    console.log(bounce);
   }, [cartCount]);
 
   return (

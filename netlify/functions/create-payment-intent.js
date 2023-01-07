@@ -16,7 +16,7 @@ exports.handler = async (event) => {
       body: JSON.stringify({ paymentIntent }),
     };
   } catch (error) {
-    console.log({ error });
+    // console.log({ error });
 
     return {
       status: 400,
