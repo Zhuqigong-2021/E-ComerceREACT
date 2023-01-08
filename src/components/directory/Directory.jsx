@@ -1,5 +1,6 @@
 import DirectoryItem from '../directory-item/DirectoryItem';
-import { motion } from 'framer-motion';
+// import { motion } from 'framer-motion';
+import { LazyMotion, domAnimation, m } from 'framer-motion';
 import { DirectoryContainer } from './Directory.style';
 import { useSelector } from 'react-redux';
 
@@ -44,14 +45,16 @@ const Directory = () => {
         <DirectoryItem key={category.id} category={category} />
       ))}
       {currentUser ? (
-        <motion.div
-          initial={{ x: -100 }}
-          animate={{ x: 0 }}
-          transition={{ duration: 2, ease: [0.5, 0.71, 1, 1.5] }}
-          className="greeting"
-        >
-          Welcome {currentUser.displayName} !
-        </motion.div>
+        <LazyMotion features={domAnimation}>
+          <m.div
+            initial={{ x: -100 }}
+            animate={{ x: 0 }}
+            transition={{ duration: 2, ease: [0.5, 0.71, 1, 1.5] }}
+            className="greeting"
+          >
+            Welcome {currentUser.displayName} !
+          </m.div>
+        </LazyMotion>
       ) : (
         ''
       )}
