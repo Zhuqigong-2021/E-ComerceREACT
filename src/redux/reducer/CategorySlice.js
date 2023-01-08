@@ -11,19 +11,7 @@ const initialState = {
   // error: null,
   isLoading: false,
 };
-//'idle' | 'loading'| 'succeeded' | 'failed"
-// export const fetchCategory = createAsyncThunk(
-//   'category/fetchCategory',
-//   async () => {
-//     try {
-//       const response = await getCategoriesAndDocuments();
 
-//       return response;
-//     } catch (err) {
-//       return err.message;
-//     }
-//   }
-// );
 
 export const CategorySlice = createSlice({
   name: 'category',

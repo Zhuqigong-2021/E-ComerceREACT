@@ -2,11 +2,7 @@ import React, { useState } from 'react';
 import { RegisterContainer } from './Register.style';
 
 import { Link } from 'react-router-dom';
-import {
-  createUserDocFromAuth,
-  signupWithEmailAndPassword,
-  signinWithGooglePopup,
-} from '../../utils/firebase';
+
 import { useDispatch } from 'react-redux';
 import { googleSignInStart } from '../../redux/reducer/UserSlice';
 import { FcGoogle } from 'react-icons/fc';
@@ -34,14 +30,6 @@ const Register = () => {
   };
   const handleSignup = async () => {
     try {
-      // const { user } = await signupWithEmailAndPassword(email, password);
-
-      // const snapshot = await createUserDocFromAuth(user, {
-      //   displayName: username,
-      // });
-      // setCurrentUser(user);
-      // location.assign('http://localhost:5173/');
-
       const data = dispatch(signUpStart({ email, password, displayName }));
       console.log(data);
     } catch (error) {

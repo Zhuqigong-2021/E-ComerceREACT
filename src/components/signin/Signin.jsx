@@ -1,11 +1,7 @@
 import React, { useState } from 'react';
 
 import { SigninContainer } from './Signin.style';
-import {
-  signinWithGooglePopup,
-  createUserDocFromAuth,
-  signInUserWithEmailAndPassword,
-} from '../../utils/firebase';
+
 import { useDispatch } from 'react-redux';
 import {
   googleSignInStart,

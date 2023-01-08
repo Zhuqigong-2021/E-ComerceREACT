@@ -64,41 +64,8 @@ export const getCategoriesAndDocuments = async () => {
 
   const querySnapshot = await getDocs(q);
   return querySnapshot.docs.map((docSnapshot) => docSnapshot.data());
-
-  // .reduce((acc, docSnapshot) => {
-  //   const { title, items } = docSnapshot.data();
-  //   acc[title.toLowerCase()] = items;
-  //   return acc;
-  // }, {});
-
-  // return categoryMap;
 };
-// export const addProductDocFromAuth = async (userAuth) => {
-//   if (!userAuth) return;
-//   const productRef = doc(db, 'users', userAuth.uid);
-//   await updateDoc(productRef, {
-//     productRef,
-//     product: [
-//       {
-//         id: 1,
-//         prodocutName: 'Ada',
-//         price: 'Lovelace',
-//         desctiption: 1815,
-//         imageUrl: 'aaa',
-//       },
-//       {
-//         id: 2,
-//         prodocutName: 'Ada',
-//         price: 'Lovelace',
-//         desctiption: 1815,
-//         imageUrl: 'aaa',
-//       },
-//     ],
-//   });
-//   const data = await getDoc(productRef);
-//   return data;
-// };
-// payload = {}
+
 export const createUserDocFromAuth = async (userAuth, payload = {}) => {
   if (!userAuth) return;
   const userDocRef = doc(db, 'users', userAuth.uid);

@@ -1,5 +1,4 @@
 import DirectoryItem from '../directory-item/DirectoryItem';
-// import { motion } from 'framer-motion';
 import { LazyMotion, domAnimation, m } from 'framer-motion';
 import { DirectoryContainer } from './Directory.style';
 import { useSelector } from 'react-redux';

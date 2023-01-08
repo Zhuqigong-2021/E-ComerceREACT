@@ -1,20 +1,7 @@
-import { useState, useEffect, lazy, Suspense } from 'react';
+import { useEffect, lazy, Suspense } from 'react';
 
-import {
-  onAuthStateChangedListener,
-  createUserDocFromAuth,
-} from '../src/utils/firebase';
-// import {
-//   Home,
-//   Layout,
-//   Shop,
-//   Profile,
-//   Register,
-//   Signin,
-//   Checkout,
-// } from './components/';
 import { Routes, Route, Navigate } from 'react-router-dom';
-// import GlobalStyle from './index.style';
+
 import { useDispatch, useSelector } from 'react-redux';
 import { checkUserSession } from '../src/redux/reducer/UserSlice';
 import Spinner from './components/spinner/Spinner';
@@ -28,15 +15,6 @@ const Checkout = lazy(() => import('../src/components/checkout/Checkout'));
 function App() {
   const dispatch = useDispatch();
   const { currentUser } = useSelector((state) => state.user);
-  // useEffect(() => {
-  //   const unsubscribe = onAuthStateChangedListener((user) => {
-  //     if (user) {
-  //       createUserDocFromAuth(user);
-  //     }
-  //     dispatch(setCurrentUser(user));
-  //   });
-  //   return unsubscribe;
-  // }, [dispatch]);
 
   useEffect(() => {
     dispatch(checkUserSession());
@@ -44,7 +22,6 @@ function App() {
 
   return (
     <div className="App">
-      {/* <GlobalStyle /> */}
       <Suspense fallback={<Spinner />}>
         <Routes>
           <Route path="/" element={<Layout />}>

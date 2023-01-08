@@ -1,6 +1,6 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import Button, { BUTTON_TYPE_CLASSES } from '../button/Button';
-// import { CartContext } from '../../context/CartContext';
+
 import { ProductCardStyle, ProductInfo } from './ProductCard.style';
 import {
   addItemToCart,
@@ -10,23 +10,16 @@ import {
 import { useDispatch, useSelector } from 'react-redux';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
-// import { useSelector, useDispatch } from 'react-redux';
+
 const ProductCard = ({ product }) => {
   const dispatch = useDispatch();
   const { name, price, imageUrl } = product;
   const cartItems = useSelector(selectCartItems);
   const { currentUser } = useSelector((state) => state.user);
-  // const { addItemToCart } = useContext(CartContext);
-  // const cartItems = dispatch((state) => setCartItems(state));
-  // console.log(cartItems);
-  // const addProductToCart = () => addItemToCart(cartItems, product);
+
   const addProductToCart = () => {
     if (!currentUser) return;
     dispatch(setCartItems(addItemToCart(cartItems, product)));
-
-    const shoppingbag = document.querySelector('.shopping_bag');
-    // const addToCart = document.querySelectorAll('.cardbtn');
-    // shoppingbag.style.transform = 'translate(0px 5px)';
   };
 
   return (
