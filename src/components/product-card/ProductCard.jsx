@@ -33,6 +33,7 @@ const ProductCard = ({ product }) => {
         threshold={0.1}
         useIntersectionObserver={true}
         visibleByDefault={false}
+        style={{ objectFit: 'cover' }}
       />
       <ProductInfo>
         <span>{name}</span>
