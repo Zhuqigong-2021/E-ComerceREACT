@@ -1,6 +1,10 @@
 import React, { useState, useEffect, Fragment } from 'react';
 
-import { CategoryContainer, CategoryTitle } from './Category.style';
+import {
+  CategoryContainer,
+  CategoryTitle,
+  CategoryPageStyle,
+} from './Category.style';
 import { useParams } from 'react-router-dom';
 import ProductCard from '../product-card/ProductCard';
 import { useSelector } from 'react-redux';
@@ -42,10 +46,10 @@ const Category = () => {
   }
 
   return (
-    <Fragment>
+    <CategoryPageStyle>
       <CategoryTitle className="title">{category.toUpperCase()}</CategoryTitle>
       {content}
-    </Fragment>
+    </CategoryPageStyle>
   );
 };
 

@@ -26,7 +26,7 @@ export const CheckoutItemstyle = styled.div`
 `;
 export const CartItemImageContainer = styled.div`
   display: inline-block;
-  border: 1px solid black;
+
   width: 100%;
   height: 200px;
   transform: scale(0.6);

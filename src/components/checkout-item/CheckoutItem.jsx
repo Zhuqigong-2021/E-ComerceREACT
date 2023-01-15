@@ -41,7 +41,13 @@ const CheckoutItem = ({ cartItems, cartItem }) => {
   return (
     <CheckoutItemstyle>
       <CartItemImageContainer>
-        <img src={imageUrl} alt={name} height="100%" width="100%" />
+        <img
+          src={imageUrl}
+          alt={name}
+          height="100%"
+          width="100%"
+          style={{ objectFit: 'contain' }}
+        />
       </CartItemImageContainer>
       {/* <DescriptionContainer> */}
       <span> {name} </span>

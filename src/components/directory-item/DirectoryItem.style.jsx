@@ -7,7 +7,7 @@ export const BackgroundImage = styled.div`
   background-position: center;
   background-color: hsl(120, 5%, 30%);
   background-image: ${({ imageUrl }) => `url(${imageUrl})`};
-
+  object-fit: cover;
   background-blend-mode: overlay;
   &:hover {
     background-color: hsl(120, 5%, 60%);

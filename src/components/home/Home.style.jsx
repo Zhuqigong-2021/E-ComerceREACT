@@ -9,7 +9,7 @@ const HomeContainer = styled.div`
 
   align-items: stretch;
   @media (max-width: 500px) {
-    padding: 0 2rem;
+    padding: 0 1rem;
   }
 `;
 export default HomeContainer;

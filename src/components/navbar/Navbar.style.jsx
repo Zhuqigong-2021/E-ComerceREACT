@@ -1,6 +1,9 @@
 import styled from 'styled-components';
 export const NavbarContainer = styled.div`
-  position: relative;
+  position: fixed;
+  z-index: 10;
+  width: 100%;
+  background-color: rgba(247, 255, 238, 0.7);
   display: flex;
   justify-content: space-between;
   margin-bottom: 2rem;

@@ -22,15 +22,17 @@ export const CheckoutStyle = styled.div`
   display: flex;
   flex-direction: column;
 
+  padding-top: 6rem;
   align-items: center;
   width: 100%;
 
   @media (max-width: 499px) {
     padding: 1rem;
+    padding-top: 4.5rem;
   }
 
   @media (min-width: 500px) and (max-width: 950px) {
-    padding: 1rem 4rem;
+    padding: 6rem 4rem;
   }
   .total {
     width: 100%;

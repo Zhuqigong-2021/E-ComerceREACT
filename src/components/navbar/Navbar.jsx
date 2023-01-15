@@ -23,38 +23,32 @@ const Navbar = () => {
   };
 
   return (
-    <>
-      <NavbarContainer>
-        <Link
-          to="/"
-          className="logo"
-          aria-label="Redirect you to the home page"
-        >
-          <BsShopWindow className="lg" alt="shopping_logo" />
+    <NavbarContainer>
+      <Link to="/" className="logo" aria-label="Redirect you to the home page">
+        <BsShopWindow className="lg" alt="shopping_logo" />
+      </Link>
+
+      <div className="nav__link">
+        <Link to="/shop" className="nav__item">
+          Shop
         </Link>
 
-        <div className="nav__link">
-          <Link to="/shop" className="nav__item">
-            Shop
-          </Link>
-
-          {currentUser ? (
-            <>
-              <Link to="/" className="nav__item">
-                <Button children="sign out" onClick={signOutUser} />
-              </Link>
-              <CartIcon className="nav__item" />
-            </>
-          ) : (
-            <Link to="/signup" className="nav__item">
-              <Button children="sign up" />
+        {currentUser ? (
+          <>
+            <Link to="/" className="nav__item">
+              <Button children="sign out" onClick={signOutUser} />
             </Link>
-          )}
-        </div>
+            <CartIcon className="nav__item" />
+          </>
+        ) : (
+          <Link to="/signup" className="nav__item">
+            <Button children="sign up" />
+          </Link>
+        )}
+      </div>
 
-        {currentUser && isCartOpen && <CartDropdown />}
-      </NavbarContainer>
-    </>
+      {currentUser && isCartOpen && <CartDropdown />}
+    </NavbarContainer>
   );
 };
 
