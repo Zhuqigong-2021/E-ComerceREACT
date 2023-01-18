@@ -6,6 +6,14 @@ export const ProductCardStyle = styled.div`
   flex-direction: column;
   height: 500px;
   color: white;
+  .item {
+    margin-left: 0.5rem;
+  }
+  .price {
+    margin-top: 0.2rem;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.8);
+  }
   img {
     width: 100%;
     height: 100%;

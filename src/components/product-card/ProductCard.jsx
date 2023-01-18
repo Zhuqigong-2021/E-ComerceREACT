@@ -7,6 +7,7 @@ import {
   selectCartItems,
   setCartItems,
 } from '../../redux/reducer/CartSlice';
+import { formatCurrency } from '../../utils/formatCurrentcy';
 import { useDispatch, useSelector } from 'react-redux';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
@@ -36,15 +37,15 @@ const ProductCard = ({ product }) => {
         style={{ objectFit: 'cover' }}
       />
       <ProductInfo>
-        <span>{name}</span>
-        <span>{price}</span>
+        <span className="item">{name}</span>
+        <span className="item price">{formatCurrency(price)}</span>
         <div className="bgtag">
           <Button
             buttonType={BUTTON_TYPE_CLASSES.inverted}
             onClick={addProductToCart}
             className="cardbtn"
           >
-            Add to card
+            Add to cart
           </Button>
         </div>
       </ProductInfo>
