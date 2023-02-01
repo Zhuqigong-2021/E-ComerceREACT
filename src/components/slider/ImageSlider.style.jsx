@@ -5,7 +5,7 @@ export const SliderStyle = styled.div`
   height:100%;
   
   min-height:100vh;
-  position: fixed;
+  position: absolute;
   top:0;
   bottom:0; 
   .styleOverflowStyle {

@@ -50,39 +50,14 @@ const Home = () => {
     },
   ];
   const content = (
-    <FrontContent>
-      <div className="frontcard">
-        {categories.map((item) => {
-          return <Card key={item.id} item={item} />;
-        })}
-      </div>
-      {/* <div className="collection">
-        <div className="signupbtn">
-          {currentUser ? (
-            <b>Welcome {currentUser.displayName} </b>
-          ) : (
-            <b>Sign up for your best user experience</b>
-          )}
+    // <FrontContent>
+    <div className="frontcard">
+      {categories.map((item) => {
+        return <Card key={item.id} item={item} />;
+      })}
+    </div>
 
-          {currentUser ? (
-            <Link to="/" className="nav__item">
-              <Button
-                children="sign out"
-                onClick={signOutUser}
-                className="btn_front"
-              />
-            </Link>
-          ) : (
-            <Link to="/signup" className="nav__item">
-              <Button children="sign up" className="btn_front" />
-            </Link>
-          )}
-        </div>
-        <div className="col">
-          <Directory />
-        </div>
-      </div> */}
-    </FrontContent>
+    // {/* </FrontContent> */}
   );
 
   const slides = [

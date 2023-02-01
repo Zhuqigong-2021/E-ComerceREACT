@@ -68,10 +68,10 @@ const HomeContainer = styled.div`
     }
   }
   .frontcard {
-    position: fixed;
+    position: absolute;
+    height: 100%;
     top: 50%;
-    // height: 50%;
-    // top: 50vh;
+    z-index: 100;
     bottom: 0.5rem;
     left: 0;
     right: 0;
@@ -83,11 +83,13 @@ const HomeContainer = styled.div`
     width: 100%;
 
     display: flex;
+
     flex: 1;
     padding: 0.5rem;
     flex-wrap: wrap;
     @media (max-width: 450px) {
       width: 100%;
+      flex-direction: column;
     }
   }
   .collection {
