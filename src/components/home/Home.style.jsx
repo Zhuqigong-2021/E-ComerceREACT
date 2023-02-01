@@ -69,9 +69,9 @@ const HomeContainer = styled.div`
   }
   .frontcard {
     position: fixed;
-
+    top: 50%;
     // height: 50%;
-    top: 50vh;
+    // top: 50vh;
     bottom: 0.5rem;
     left: 0;
     right: 0;
@@ -238,10 +238,10 @@ export const FrontContent = styled.div`
   flex-direction: column;
 
   justify-content: center;
-  overflow: scroll;
-  &::-webkit-scrollbar {
-    display: none;
-  }
+  overflow: hidden;
+  // &::-webkit-scrollbar {
+  //   display: none;
+  // }
   width: 100%;
   height: 100%;
 

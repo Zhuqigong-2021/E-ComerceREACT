@@ -124,65 +124,19 @@ const Home = () => {
     right: 0,
     bottom: 0,
     width: '100%',
-    height: '100vh',
+    minHeight: '100vh',
+
     margin: '0,auto',
   };
   const width = getWith();
 
   return (
-    <HomeContainer
-    // style={getSlideStyleWithBackground(slideIndex)}
-
-    // imageUrl={slideImage[currentIndex].imageUrl}
-    // str={slideImage[currentIndex].gradient}
-    >
-      {/* <div className="left" onClick={() => leftClick()}>
-        <BsChevronLeft />
-      </div> */}
-      {/* <div
-        style={{
-          height: '100%',
-          width: '100%',
-          position: 'absolute',
-          top: '0',
-          right: '0',
-        }}
-      > */}
-
-      {/* </div> */}
-      {/* <div style={getSlidesContainerStylesWithWidth()}>
-        {slideImage.map((_, slideIndex) => (
-          <SlideContainer
-            key={slideIndex}
-           
-            imageUrl={slideImage[slideIndex].imageUrl}
-            str={slideImage[slideIndex].gradient}
-            slideIndex={slideIndex}
-          />
-        ))}
-      </div> */}
+    <HomeContainer>
+      {content}
 
       <div style={constainerStyles}>
         <ImageSlider slides={slides} parentWidth={width} />
       </div>
-      {content}
-      {/* <div> */}
-      {/* <img
-          src="https://images.unsplash.com/photo-1659290334121-2e6aa96659d0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"
-          alt="remote controller"
-          className="remote"
-          style={{ objectFit: 'cover', width: '100%', height: '100% ' }}
-        /> */}
-      {/* <div className="slider">
-        <Slider1 />
-      </div> */}
-
-      {/* </div> */}
-
-      {/* <Directory /> */}
-      {/* <div className="right" onClick={() => rightClick()}>
-        <BsChevronRight />
-      </div> */}
     </HomeContainer>
   );
 };

@@ -27,6 +27,7 @@ export const FrontImage = styled.div`
 `;
 
 export const CardStyle = styled.div`
+  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.2);
   position: relative;
   min-width: 15%;
   height: 400px;

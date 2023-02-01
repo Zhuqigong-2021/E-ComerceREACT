@@ -1,11 +1,17 @@
 import styled from 'styled-components';
 export const SliderStyle = styled.div`
+  
   width: 100%;
-  height: 100%;
-  position: relative;
+  height:100%;
+  
+  min-height:100vh;
+  position: fixed;
+  top:0;
+  bottom:0; 
   .styleOverflowStyle {
     overflow-x: hidden;
     height: 100%;
+    
   }
   .left {
     position: absolute;
