@@ -7,11 +7,13 @@ import storage from 'redux-persist/lib/storage';
 import logger from 'redux-logger';
 import createSagaMiddleware from 'redux-saga';
 import rootSaga from './saga/rootSaga';
+import filterReducer from './reducer/FilterSlice';
 
 const rootReducer = combineReducers({
   user: userReducer,
   category: categoryReducer,
   cart: cartReducer,
+  filter: filterReducer,
 });
 const sagaMiddleware = createSagaMiddleware();
 const persistConfig = {

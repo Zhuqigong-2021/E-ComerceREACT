@@ -7,7 +7,8 @@ export const CartIconStyle = styled.div`
     @keyframes bounce {
       from {
         transform: rotate(15deg);
-        color: #047857;
+        // color: #047857;
+        color: white;
       }
       50% {
         transform: rotate(-15deg);
@@ -15,7 +16,8 @@ export const CartIconStyle = styled.div`
       }
       to {
         transform: rotate(0deg);
-        color: #047857;
+        // color: #047857;
+        color: white;
       }
     }
   }
@@ -25,7 +27,8 @@ export const CartIconStyle = styled.div`
     @keyframes bounceAgain {
       from {
         transform: rotate(15deg);
-        color: #047857;
+        // color: #047857;
+        color: white;
       }
       50% {
         transform: rotate(-15deg);
@@ -33,7 +36,8 @@ export const CartIconStyle = styled.div`
       }
       to {
         transform: rotate(0deg);
-        color: #047857;
+        // color: #047857;
+        color: white;
       }
     }
   }
@@ -49,7 +53,8 @@ export const CartIconStyle = styled.div`
     position: absolute;
     transform: scale(2.3);
     transform-origin: center;
-    color: #059669;
+    // color: #059669;
+    color: white;
   }
   .count {
     position: absolute;

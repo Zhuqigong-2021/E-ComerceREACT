@@ -12,7 +12,9 @@ import { useSelector, useDispatch } from 'react-redux';
 import { BsShopWindow } from 'react-icons/bs';
 import { signOutStart } from '../../redux/reducer/UserSlice';
 import { selectIsCartOpen } from '../../redux/reducer/CartSlice';
-const Navbar = () => {
+import { SiStartrek } from 'react-icons/si';
+
+const Navbar = ({ background }) => {
   const dispatch = useDispatch();
   const { currentUser } = useSelector((state) => state.user);
 
@@ -23,28 +25,29 @@ const Navbar = () => {
   };
 
   return (
-    <NavbarContainer>
+    <NavbarContainer background={background}>
       <Link to="/" className="logo" aria-label="Redirect you to the home page">
-        <BsShopWindow className="lg" alt="shopping_logo" />
+        <SiStartrek className="lg" alt="shopping_logo" />
+        <div className="qg">Q.Z</div>
       </Link>
 
       <div className="nav__link">
         <Link to="/shop" className="nav__item">
           Shop
         </Link>
-
-        {currentUser ? (
+        {currentUser ? <CartIcon className="nav__item " /> : ''}
+        {/* {currentUser ? (
           <>
-            <Link to="/" className="nav__item">
+            <Link to="/" className="nav__item phone">
               <Button children="sign out" onClick={signOutUser} />
             </Link>
             <CartIcon className="nav__item" />
           </>
         ) : (
-          <Link to="/signup" className="nav__item">
+          <Link to="/signup" className="nav__item phone">
             <Button children="sign up" />
           </Link>
-        )}
+        )} */}
       </div>
 
       {currentUser && isCartOpen && <CartDropdown />}

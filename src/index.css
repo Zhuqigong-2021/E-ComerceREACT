@@ -5,9 +5,14 @@
   padding: 0;
   box-sizing: border-box;
 }
+html {
+  scroll-behavior: smooth;
+}
 body {
-  /* background-color: #f7fee7; */
-  background-color: rgba(247, 255, 238, 0.7);
+  /* background-color: #f7fee7;
+  background-color: rgba(247, 255, 238, 0.7); */
+  /* background-color: #f3f4f6; */
+  background-color: #f1f5f9;
 }
 .noselect {
   -webkit-touch-callout: none; /* iOS Safari */

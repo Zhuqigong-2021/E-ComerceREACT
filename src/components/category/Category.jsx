@@ -47,7 +47,7 @@ const Category = () => {
 
   return (
     <CategoryPageStyle>
-      <CategoryTitle className="title">{category.toUpperCase()}</CategoryTitle>
+      {/* <CategoryTitle className="title">{category.toUpperCase()}</CategoryTitle> */}
       {content}
     </CategoryPageStyle>
   );

@@ -5,6 +5,7 @@ import {
   BackgroundImage,
   Body,
   DirectoryItemContainer,
+  Content,
 } from './DirectoryItem.style';
 
 const DirectoryItem = ({ category }) => {
@@ -16,10 +17,15 @@ const DirectoryItem = ({ category }) => {
   return (
     <DirectoryItemContainer onClick={onNavigateHandler}>
       <BackgroundImage imageUrl={imageUrl} />
-      <Body>
+      {/* <Body>
         <h2>{title}</h2>
         <p>Shop Now</p>
-      </Body>
+        
+      </Body> */}
+      <Content>
+        <h4>{title}</h4>
+        <p>all you need is right here</p>
+      </Content>
     </DirectoryItemContainer>
   );
 };

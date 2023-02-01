@@ -9,9 +9,9 @@ const initialState = {
   categories: [],
   // status: 'idle',
   // error: null,
+
   isLoading: false,
 };
-
 
 export const CategorySlice = createSlice({
   name: 'category',

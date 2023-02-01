@@ -22,28 +22,28 @@ const categories = [
     imageUrl: 'https://i.ibb.co/0jqHpnp/sneakers.png',
     route: 'shop/sneakers',
   },
-  {
-    id: 4,
-    title: 'womens',
-    imageUrl: 'https://i.ibb.co/GCCdy8t/womens.png',
-    route: 'shop/womens',
-  },
-  {
-    id: 5,
-    title: 'mens',
-    imageUrl: 'https://i.ibb.co/R70vBrQ/men.png',
-    route: 'shop/mens',
-  },
+  // {
+  //   id: 4,
+  //   title: 'womens',
+  //   imageUrl: 'https://i.ibb.co/GCCdy8t/womens.png',
+  //   route: 'shop/womens',
+  // },
+  // {
+  //   id: 5,
+  //   title: 'mens',
+  //   imageUrl: 'https://i.ibb.co/R70vBrQ/men.png',
+  //   route: 'shop/mens',
+  // },
 ];
 
 const Directory = () => {
-  const { currentUser } = useSelector((state) => state.user);
   return (
     <DirectoryContainer className="noselect">
+      <h4>Related collections</h4>
       {categories.map((category) => (
         <DirectoryItem key={category.id} category={category} />
       ))}
-      {currentUser ? (
+      {/* {currentUser ? (
         <LazyMotion features={domAnimation}>
           <m.div
             initial={{ x: -100 }}
@@ -56,7 +56,7 @@ const Directory = () => {
         </LazyMotion>
       ) : (
         ''
-      )}
+      )} */}
     </DirectoryContainer>
   );
 };

@@ -12,7 +12,8 @@ const GlobalStyle = createGlobalStyle`
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  background-color:#f7fee7;
+  // background-color:#f7fee7;
+ 
 }
 /* .custom__btn {
   padding: 0.5rem 1rem;

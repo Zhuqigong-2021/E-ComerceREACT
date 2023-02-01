@@ -3,7 +3,7 @@ import { SpinnerContainer } from '../spinner/Spinner.style';
 
 export const BaseButton = styled.button`
   padding: 0.5rem 1rem;
-
+  text-decoration: none;
   // background-color: #059669;
   background-color: #00120b;
   border: none;
@@ -25,7 +25,7 @@ export const GoogleSignInButton = styled(BaseButton)`
   background-color: black;
   width: 100%;
   box-shadow: 0 2px 2px rgb(0, 0, 0, 0.3);
-
+  text-decoration: none;
   &:hover {
     background-color: rgb(0, 0, 0, 0.9);
     box-shadow: 0 4px 4px rgb(0, 0, 0, 0.3);
@@ -41,7 +41,7 @@ export const InvertedButton = styled(BaseButton)`
   color: black;
   border: 1px solid black;
   box-shadow: 0 2px 2px rgb(0, 0, 0, 0.3);
-
+  text-decoration: none;
   &:hover {
     background-color: rgb(0, 0, 0);
     color: white;
