@@ -42,7 +42,7 @@ const ImageSlider = ({ slides, parentWidth }) => {
     }
     timerRef.current = setTimeout(() => {
       gotoNext();
-    }, 2000);
+    }, 4000);
     return () => clearTimeout(timerRef.current);
   }, [gotoNext]);
   const slidesContainerStyles = {

@@ -38,7 +38,6 @@ const Card = ({ item }) => {
         <FrontImage imageUrl={imageUrl} onClick={() => navigate(route)} />
       )}
 
-      {/* <Link to={route}> */}
       {id === 4 ? (
         currentUser ? (
           <Link to="/">
@@ -54,9 +53,11 @@ const Card = ({ item }) => {
           </Link>
         )
       ) : (
-        <span className="seemore">See more</span>
+        <Link to={route} className="seemore">
+          <span>See more</span>
+        </Link>
       )}
-      {/* </Link> */}
+
       {id === 4 ? <Directory /> : ''}
     </CardStyle>
   );

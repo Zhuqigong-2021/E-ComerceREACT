@@ -17,11 +17,11 @@ export const SliderStyle = styled.div`
     position: absolute;
     display: flex;
     align-items: center;
-    top: 3rem;
+    top: 5rem;
     left: 0;
     color: white;
 
-    height: calc(43%);
+    height: calc(30%);
     font-size: 40px;
 
     z-index: 10;
@@ -38,11 +38,11 @@ export const SliderStyle = styled.div`
     position: absolute;
     display: flex;
     align-items: center;
-    top: 3rem;
+    top: 5rem;
     right: 0;
     color: white;
 
-    height: calc(43%);
+    height: calc(30%);
     font-size: 40px;
 
     z-index: 10;

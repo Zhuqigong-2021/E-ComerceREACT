@@ -56,15 +56,21 @@ export const CardStyle = styled.div`
   .seemore {
     display: block;
     // color: #4d7eb0;
-    color: #1d4ed8;
+    // color: #1d4ed8;
+    color: #50afb3;
     margin-top: 0.5rem;
-    // text-decoration: none;
-    // &:link,
-    // &:visited,
-    // &:hover,
-    // &:active {
-    //   text-decoration: none;
-    // }
+    text-decoration: none;
+    &:link,
+    &:visited,
+    &:hover,
+    &:active {
+      text-decoration: none;
+    }
+    &:hover,
+    &:active {
+      color: #eb7302;
+      text-decoration: underline;
+    }
   }
   .seelink {
     text-decoration: none;
