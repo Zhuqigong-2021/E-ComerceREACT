@@ -1,25 +1,11 @@
-import React, { useState, useRef, useEffect, useCallback } from 'react';
+import React from 'react';
 import HomeContainer from './Home.style';
-import { SlideContainer } from './Home.style';
-import Directory from '../directory/Directory';
+
 import Card from '../front-card/Card';
-import { Link } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
-import { signOutStart } from '../../redux/reducer/UserSlice';
-import Button from '../button/Button';
-import { FrontContent } from './Home.style';
-import { BsChevronLeft, BsChevronRight } from 'react-icons/bs';
 import ImageSlider from '../slider/ImageSlider';
 import { getWith } from '../../hooks/GetWidth';
 
 const Home = () => {
-  const dispatch = useDispatch();
-  const timeRef = useRef(null);
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const { currentUser } = useSelector((state) => state.user);
-  const signOutUser = () => {
-    dispatch(signOutStart());
-  };
   const categories = [
     {
       id: 1,
@@ -50,14 +36,11 @@ const Home = () => {
     },
   ];
   const content = (
-    // <FrontContent>
     <div className="frontcard">
       {categories.map((item) => {
         return <Card key={item.id} item={item} />;
       })}
     </div>
-
-    // {/* </FrontContent> */}
   );
 
   const slides = [

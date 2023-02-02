@@ -1,15 +1,8 @@
-import React, {
-  useState,
-  useRef,
-  useEffect,
-  useCallback,
-  Fragment,
-} from 'react';
+import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { BsChevronLeft, BsChevronRight } from 'react-icons/bs';
 import { useNavigate } from 'react-router-dom';
 import Button from '../button/Button';
-import { SliderStyle, SliderOneBtnStyle } from './ImageSlider.style';
-import { TiShoppingCart } from 'react-icons/ti';
+import { SliderStyle } from './ImageSlider.style';
 
 const ImageSlider = ({ slides, parentWidth }) => {
   const navigate = useNavigate();
@@ -43,16 +36,15 @@ const ImageSlider = ({ slides, parentWidth }) => {
     setCurrentIndex(newIndex);
   }, [currentIndex, slides]);
 
-  // useEffect(() => {
-  //   console.log('useEffect');
-  //   if (timerRef.current) {
-  //     clearTimeout(timerRef.current);
-  //   }
-  //   timerRef.current = setTimeout(() => {
-  //     gotoNext();
-  //   }, 200000000);
-  //   return () => clearTimeout(timerRef.current);
-  // }, [gotoNext]);
+  useEffect(() => {
+    if (timerRef.current) {
+      clearTimeout(timerRef.current);
+    }
+    timerRef.current = setTimeout(() => {
+      gotoNext();
+    }, 2000);
+    return () => clearTimeout(timerRef.current);
+  }, [gotoNext]);
   const slidesContainerStyles = {
     display: 'flex',
     height: '100%',
@@ -96,14 +88,6 @@ const ImageSlider = ({ slides, parentWidth }) => {
               >
                 <h3 className="sliderTitle noselect">{slide.title}</h3>
                 <p className="substyle noslect">{slide.sub}</p>
-                {/* {slideIndex === 1 ? (
-                  <div className="slidertwo">
-                    <TiShoppingCart />
-                    <p>Order now</p>
-                  </div>
-                ) : (
-                  ''
-                )} */}
               </div>
             );
           })}
