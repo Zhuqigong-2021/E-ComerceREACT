@@ -13,7 +13,6 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import { BsHeart, BsHeartFill } from 'react-icons/bs';
 import { useEffect } from 'react';
-// import { getIsFavoured, toggleFavoured } from '../../redux/reducer/FilterSlice';
 
 const ProductCard = ({ product }) => {
   const dispatch = useDispatch();
